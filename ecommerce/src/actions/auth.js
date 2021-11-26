@@ -1,4 +1,3 @@
-import { toast } from '@chakra-ui/react'
 import jwt from 'jsonwebtoken'
 
 export const loginUser = (email, password) => {
@@ -7,9 +6,8 @@ export const loginUser = (email, password) => {
     const users = JSON.parse(localStorage.getItem('users'))
     const user = users.find(u => u.email === email)
 
-    if (user.email === email && user.password === password) {
+    if (user.password === password) {
         const token = jwt.sign({ email: user.email }, 'SECRET')
-       // toast.success('login success')
         return {
             type: "LOGIN_SUCCESS",
             payload: { token }
@@ -22,3 +20,4 @@ export const loginUser = (email, password) => {
         }
     }
 }
+

@@ -13,7 +13,6 @@ import {
     Text,
     useColorModeValue,
     Link,
-    toast,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
@@ -28,7 +27,6 @@ export default function Signup() {
 
     const handleSignup = () => {
         const users = JSON.parse(localStorage.getItem('users')) ?? []
-       // toast.success("Signup Success")
         localStorage.setItem('users', JSON.stringify([...users, {
             email, firstName, lastName, password
         }]))
